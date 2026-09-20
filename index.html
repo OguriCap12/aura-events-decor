@@ -7,7 +7,34 @@
   <meta name="theme-color" content="#0F172A" />
   <meta name="robots" content="index,follow" />
   <meta name="description" content="Aura Events & Decor creates elevated weddings, galas and private celebrations with considered design, flawless production and unforgettable guest experiences." />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com">
+const cinematic=document.querySelector('.cinematic-wrap');
+const cinematicMedia=document.getElementById('cinematicMedia');
+const cinematicCopy=document.getElementById('cinematicCopy');
+const horizontalSection=document.getElementById('visualStory');
+const horizontalTrack=document.getElementById('horizontalTrack');
+function clamp(v,min,max){return Math.min(Math.max(v,min),max);}
+function updateScrollScenes(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  if(cinematic){
+    const rect=cinematic.getBoundingClientRect();
+    const progress=clamp(-rect.top/(rect.height-window.innerHeight),0,1);
+    cinematicMedia.style.transform='scale('+(1.12-progress*.12)+') translate3d(0,'+(progress*-3)+'%,0)';
+    cinematicCopy.style.opacity=String(1-Math.max(0,(progress-.48)/.52));
+    cinematicCopy.style.transform='translate3d(0,'+(progress*-35)+'px,0)';
+  }
+  if(horizontalSection&&horizontalTrack){
+    const rect=horizontalSection.getBoundingClientRect();
+    const progress=clamp((window.innerHeight-rect.top)/(window.innerHeight+rect.height),0,1);
+    const maxShift=Math.max(0,horizontalTrack.scrollWidth-horizontalSection.clientWidth);
+    horizontalTrack.style.transform='translate3d('+(-maxShift*clamp((progress-.12)/.76,0,1))+'px,0,0)';
+  }
+}
+let scrollTick=false;
+window.addEventListener('scroll',()=>{if(!scrollTick){requestAnimationFrame(()=>{updateScrollScenes();scrollTick=false;});scrollTick=true;}},{passive:true});
+window.addEventListener('resize',updateScrollScenes);
+updateScrollScenes();
+</script>
   <!-- Tailwind Play CDN is retained because this is a single-file demo. For production, compile Tailwind into a static CSS file. -->
   <script>
     tailwind.config = {
@@ -36,6 +63,16 @@
     .glass { background:rgba(15,23,42,.72); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.18); }
     .eyebrow { letter-spacing:.18em; text-transform:uppercase; font-size:.68rem; font-weight:700; }
     .section-rule { border-top:1px solid #e5e7eb; }
+    .cinematic-wrap { position:relative; height:180vh; }
+    .cinematic-sticky { position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden; }
+    .cinematic-media { transform:scale(1.12); will-change:transform; }
+    .cinematic-copy { will-change:transform,opacity; }
+    .horizontal-track { will-change:transform; }
+    @media (prefers-reduced-motion: reduce) {
+      .cinematic-wrap { height:auto; }
+      .cinematic-sticky { position:relative; height:auto; min-height:70vh; }
+      .cinematic-media { transform:none !important; }
+    }
     .portfolio-card img { transition:transform .65s cubic-bezier(.2,.7,.2,1); }
     .portfolio-card:hover img { transform:scale(1.07); }
     .hero-photo { object-position:center; }
@@ -106,6 +143,37 @@
     </div>
   </div>
 </section>
+<section class="cinematic-wrap bg-black text-white" id="story">
+  <div class="cinematic-sticky">
+    <img id="cinematicMedia" class="absolute inset-0 w-full h-full object-cover cinematic-media" src="https://images.unsplash.com/photo-1747041807225-722af454c719?auto=format&fit=crop&fm=jpg&q=86&w=2200" alt="Elegant luxury wedding reception" loading="lazy">
+    <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/35 to-black/10"></div>
+    <div class="relative max-w-7xl mx-auto px-5 lg:px-8 w-full">
+      <div id="cinematicCopy" class="cinematic-copy max-w-xl">
+        <p class="eyebrow text-auraGold">The Aura approach</p>
+        <p class="text-white/40 text-sm mt-5">01 / 03</p>
+        <h2 class="font-display text-5xl md:text-7xl leading-[.94] mt-3">Design the atmosphere before the details.</h2>
+        <p class="text-white/70 mt-6 text-base md:text-lg leading-relaxed max-w-lg">Scroll through the story. The environment changes first; the details follow.</p>
+      </div>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[.25em] uppercase text-white/45">Scroll to explore</div>
+  </div>
+</section>
+
+<section class="py-20 bg-slateLuxury text-white overflow-hidden" id="visualStory">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="flex items-end justify-between gap-8 mb-10">
+      <div><p class="eyebrow text-auraGold">Visual language</p><h2 class="font-display text-4xl md:text-6xl mt-3">A composition, not a catalogue.</h2></div>
+      <p class="hidden md:block max-w-sm text-sm text-white/50 leading-relaxed">A few visual directions that can become the foundation for an actual event brief.</p>
+    </div>
+    <div class="overflow-hidden"><div id="horizontalTrack" class="horizontal-track flex gap-5 w-max">
+      <article class="w-[72vw] md:w-[42vw] lg:w-[31vw] h-[55vh] min-h-[380px] relative overflow-hidden"><img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1747041807225-722af454c719?auto=format&fit=crop&fm=jpg&q=82&w=1400" alt="Wedding reception design" loading="lazy"><div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent"></div><div class="absolute bottom-7 left-7"><p class="eyebrow text-auraGold">01</p><h3 class="font-display text-3xl mt-2">Warm minimalism</h3></div></article>
+      <article class="w-[72vw] md:w-[42vw] lg:w-[31vw] h-[55vh] min-h-[380px] relative overflow-hidden"><img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1775126964424-913480443772?auto=format&fit=crop&fm=jpg&q=82&w=1400" alt="Elegant event tablescape" loading="lazy"><div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent"></div><div class="absolute bottom-7 left-7"><p class="eyebrow text-auraGold">02</p><h3 class="font-display text-3xl mt-2">After-dark glamour</h3></div></article>
+      <article class="w-[72vw] md:w-[42vw] lg:w-[31vw] h-[55vh] min-h-[380px] relative overflow-hidden"><img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1772127822525-7eda37383b9f?auto=format&fit=crop&fm=jpg&q=82&w=1400" alt="Romantic event styling" loading="lazy"><div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent"></div><div class="absolute bottom-7 left-7"><p class="eyebrow text-auraGold">03</p><h3 class="font-display text-3xl mt-2">Modern romance</h3></div></article>
+      <article class="w-[72vw] md:w-[42vw] lg:w-[31vw] h-[55vh] min-h-[380px] relative overflow-hidden"><img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1745573673235-5f2cee3ff9a8?auto=format&fit=crop&fm=jpg&q=82&w=1400" alt="Modern event environment" loading="lazy"><div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent"></div><div class="absolute bottom-7 left-7"><p class="eyebrow text-auraGold">04</p><h3 class="font-display text-3xl mt-2">Contemporary drama</h3></div></article>
+    </div></div>
+  </div>
+</section>
+
 
 <section class="py-12 bg-white section-rule">
   <div class="max-w-7xl mx-auto px-5 lg:px-8 grid md:grid-cols-3 gap-10">
