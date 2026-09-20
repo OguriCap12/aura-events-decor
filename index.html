@@ -10,6 +10,7 @@
   <script src="https://cdn.tailwindcss.com">
 const cinematic=document.querySelector('.cinematic-wrap');
 const cinematicMedia=document.getElementById('cinematicMedia');
+const cinematicFrames=document.querySelectorAll('.cinematic-frame');
 const cinematicCopy=document.getElementById('cinematicCopy');
 const horizontalSection=document.getElementById('visualStory');
 const horizontalTrack=document.getElementById('horizontalTrack');
@@ -20,6 +21,12 @@ function updateScrollScenes(){
     const rect=cinematic.getBoundingClientRect();
     const progress=clamp(-rect.top/(rect.height-window.innerHeight),0,1);
     cinematicMedia.style.transform='scale('+(1.12-progress*.12)+') translate3d(0,'+(progress*-3)+'%,0)';
+    const frameProgress=progress*cinematicFrames.length;
+    const activeFrame=Math.min(cinematicFrames.length-1,Math.floor(frameProgress));
+    cinematicFrames.forEach((frame,index)=>{
+      frame.style.opacity=index===activeFrame?'1':'0';
+      frame.style.transform='scale('+(index===activeFrame ? 1 : 1.04)+')';
+    });
     cinematicCopy.style.opacity=String(1-Math.max(0,(progress-.48)/.52));
     cinematicCopy.style.transform='translate3d(0,'+(progress*-35)+'px,0)';
   }
@@ -145,7 +152,11 @@ updateScrollScenes();
 </section>
 <section class="cinematic-wrap bg-black text-white" id="story">
   <div class="cinematic-sticky">
-    <img id="cinematicMedia" class="absolute inset-0 w-full h-full object-cover cinematic-media" src="https://images.unsplash.com/photo-1747041807225-722af454c719?auto=format&fit=crop&fm=jpg&q=86&w=2200" alt="Elegant luxury wedding reception" loading="lazy">
+    <div id="cinematicMedia" class="absolute inset-0 cinematic-media">
+      <img class="cinematic-frame absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-700" src="https://images.unsplash.com/photo-1747041807225-722af454c719?auto=format&fit=crop&fm=jpg&q=86&w=2200" alt="Elegant luxury wedding reception" loading="eager">
+      <img class="cinematic-frame absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700" src="https://images.unsplash.com/photo-1775126964424-913480443772?auto=format&fit=crop&fm=jpg&q=86&w=2200" alt="Elegant formal event tablescape" loading="lazy">
+      <img class="cinematic-frame absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700" src="https://images.unsplash.com/photo-1772127822525-7eda37383b9f?auto=format&fit=crop&fm=jpg&q=86&w=2200" alt="Romantic luxury event styling" loading="lazy">
+    </div>
     <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/35 to-black/10"></div>
     <div class="relative max-w-7xl mx-auto px-5 lg:px-8 w-full">
       <div id="cinematicCopy" class="cinematic-copy max-w-xl">
