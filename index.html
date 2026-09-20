@@ -31,6 +31,11 @@
     html { scroll-behavior: smooth; }
     body { background:#FAFAF9; color:#0F172A; }
     .gold-gradient { background:#D4AF37; }
+    .hero-photo { object-position:center 42%; }
+    .site-header { box-shadow:0 10px 30px rgba(0,0,0,.12); }
+    .editorial-link { display:inline-flex; align-items:center; gap:.5rem; position:relative; }
+    .editorial-link::after { content:""; position:absolute; left:0; right:1.25rem; bottom:-5px; height:1px; background:currentColor; transform:scaleX(.45); transform-origin:left; transition:transform .3s ease; }
+    .editorial-link:hover::after { transform:scaleX(1); }
     .hero-overlay { background:linear-gradient(90deg,rgba(8,12,20,.88) 0%,rgba(8,12,20,.42) 55%,rgba(8,12,20,.05) 100%); }
     .card-shadow { box-shadow:0 12px 40px rgba(15,23,42,.07); }
     .glass { background:rgba(15,23,42,.72); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.18); }
@@ -61,7 +66,7 @@
 </head>
 <body class="font-sans">
 
-<header class="fixed top-0 inset-x-0 z-50 bg-slateLuxury border-b border-white/10">
+<header class="site-header fixed top-0 inset-x-0 z-50 bg-slateLuxury border-b border-white/10">
   <nav class="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between">
     <a href="#" class="flex items-center gap-3 text-white">
       <div class="w-10 h-10 rounded-full border border-auraGold flex items-center justify-center font-display text-auraGold text-lg">A</div>
@@ -97,12 +102,23 @@
   <div class="relative max-w-7xl mx-auto px-5 lg:px-8 w-full pb-20 lg:pb-24 pt-40">
     <div class="max-w-3xl text-white reveal">
       <p class="eyebrow text-auraGold mb-5">Event design · styling · production</p>
-      <h1 class="font-display text-5xl md:text-7xl leading-[.95] tracking-tight">Events with a point of view.</h1>
+      <h1 class="font-display text-5xl md:text-7xl leading-[.95] tracking-tight max-w-4xl">Events with a point of view.</h1>
       <p class="mt-7 text-base md:text-lg text-white/80 max-w-xl leading-relaxed">Aura creates considered weddings, celebrations and corporate occasions where design, atmosphere and production work as one.</p>
       <div class="flex flex-col sm:flex-row gap-3 mt-8">
-        <a href="#consultation" class="bg-white text-slateLuxury px-7 py-3.5 font-semibold text-center hover:bg-auraGold transition">Enquire about your event</a>
-        <a href="#portfolio" class="border border-white/50 text-white px-7 py-3.5 font-semibold text-center hover:bg-white hover:text-slateLuxury transition">View selected work</a>
+        <a href="#consultation" class="bg-auraGold text-slateLuxury px-7 py-3.5 font-semibold text-center hover:brightness-105 transition">Enquire about your event</a>
+        <a href="#portfolio" class="editorial-link text-white px-2 py-3.5 font-semibold text-center">View selected work <span aria-hidden="true">↗</span></a>
       </div>
+    </div>
+  </div>
+</section><section class="py-16 bg-white section-rule">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-[1.15fr_.85fr] gap-12 items-end">
+    <div class="reveal">
+      <p class="eyebrow text-auraGold">Aura Events & Decor</p>
+      <p class="font-display text-3xl md:text-5xl leading-tight mt-4 max-w-4xl">We design celebrations that feel personal, polished and effortless to experience.</p>
+    </div>
+    <div class="reveal lg:pb-1">
+      <p class="text-sm leading-relaxed text-slate-600">From intimate celebrations to large-scale occasions, our role is to bring creative direction and production discipline into the same room.</p>
+      <a href="#approach" class="editorial-link mt-6 text-sm font-semibold text-slateLuxury">Explore our approach <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
@@ -127,11 +143,20 @@
 </section>
 
 
-<section class="py-12 bg-white section-rule">
-  <div class="max-w-7xl mx-auto px-5 lg:px-8 grid md:grid-cols-3 gap-10">
-    <div><p class="eyebrow text-auraGold">01 — Brief</p><h3 class="font-display text-2xl mt-3">Start with what matters.</h3><p class="text-sm text-slate-600 mt-2 leading-relaxed">Your venue, guest experience, priorities and visual references become the foundation for the design.</p></div>
-    <div><p class="eyebrow text-auraGold">02 — Design</p><h3 class="font-display text-2xl mt-3">Create a coherent world.</h3><p class="text-sm text-slate-600 mt-2 leading-relaxed">Florals, furniture, lighting, materials and spatial details are developed as one visual language.</p></div>
-    <div><p class="eyebrow text-auraGold">03 — Produce</p><h3 class="font-display text-2xl mt-3">Deliver with precision.</h3><p class="text-sm text-slate-600 mt-2 leading-relaxed">A clear production plan turns the creative direction into a composed, well-run event.</p></div>
+<section id="approach" class="py-20 bg-cream section-rule">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <div class="reveal">
+        <p class="eyebrow text-auraGold">Our approach</p>
+        <h2 class="font-display text-4xl md:text-5xl mt-3">Thoughtful from brief to build.</h2>
+      </div>
+      <p class="max-w-md text-sm text-slate-600 leading-relaxed reveal">A clear process protects the creative idea while keeping the practical side of the event under control.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10 mt-12">
+      <div class="reveal border-t border-slate-300 pt-5"><div class="flex justify-between"><span class="eyebrow text-auraGold">01</span><span class="text-xs text-slate-400">DISCOVER</span></div><h3 class="font-display text-2xl mt-5">Define the occasion.</h3><p class="text-sm text-slate-600 mt-3 leading-relaxed">Venue, guests, priorities, references and logistics become the foundation of the creative direction.</p></div>
+      <div class="reveal border-t border-slate-300 pt-5"><div class="flex justify-between"><span class="eyebrow text-auraGold">02</span><span class="text-xs text-slate-400">DESIGN</span></div><h3 class="font-display text-2xl mt-5">Shape the environment.</h3><p class="text-sm text-slate-600 mt-3 leading-relaxed">Florals, furniture, lighting, materials and spatial moments are developed as one coherent system.</p></div>
+      <div class="reveal border-t border-slate-300 pt-5"><div class="flex justify-between"><span class="eyebrow text-auraGold">03</span><span class="text-xs text-slate-400">DELIVER</span></div><h3 class="font-display text-2xl mt-5">Produce it beautifully.</h3><p class="text-sm text-slate-600 mt-3 leading-relaxed">Schedules, vendors, setup and on-site coordination turn the concept into a composed guest experience.</p></div>
+    </div>
   </div>
 </section>
 
@@ -156,7 +181,7 @@
   <div class="max-w-7xl mx-auto px-5 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 reveal">
       <div><p class="eyebrow text-auraGold">Selected work</p><h2 class="font-display text-4xl md:text-5xl mt-3">A selection of visual directions.</h2></div>
-      <div id="filters" class="flex flex-wrap gap-2"></div>
+      
     </div>
     <div id="portfolioGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12"></div>
 
@@ -168,9 +193,9 @@
   <div class="max-w-7xl mx-auto px-5 lg:px-8">
     <div class="text-center max-w-2xl mx-auto reveal"><p class="text-auraGold text-sm font-semibold tracking-[.2em] uppercase">Ways to work together</p><h2 class="font-display text-4xl md:text-5xl mt-3">Choose your level of Aura.</h2><p class="text-slate-600 mt-4">Whether you need refined styling or complete production, every package is built around a clear creative direction and a polished guest experience.</p></div>
     <div class="grid lg:grid-cols-3 gap-6 mt-12">
-      <div class="bg-white border-t border-slate-200 pt-7 reveal"><p class="text-sm text-auraGold font-semibold uppercase tracking-widest">01 · Partial Styling</p><h3 class="font-display text-3xl mt-3">Essential Elegance</h3><p class="text-slate-600 mt-3">For hosts who have the venue and plan, but want Aura's eye for the moments guests notice most.</p><ul class="space-y-3 mt-7 text-sm"><li>✓ Ceremony or entrance styling</li><li>✓ Tablescape design</li><li>✓ Curated floral accents</li><li>✓ Setup supervision</li></ul><a href="#consultation" class="block mt-8 w-full border border-slate-200 py-3 rounded-xl font-semibold text-center hover:border-auraGold">Discuss this scope</a></div>
-      <div class="bg-slateLuxury text-white p-8 md:p-10 reveal"><p class="text-sm text-auraGold font-semibold uppercase tracking-widest">02 · Full Experience</p><h3 class="font-display text-3xl mt-3">Bespoke Luxury</h3><p class="text-white/65 mt-3">A complete visual language carried through the venue, guest journey, florals, furniture and lighting.</p><ul class="space-y-3 mt-7 text-sm text-white/85"><li>✓ Full concept + moodboard</li><li>✓ Floral & tablescape architecture</li><li>✓ Furniture & linen curation</li><li>✓ Lighting design</li><li>✓ Full setup + strike management</li></ul><a href="#consultation" class="block mt-8 w-full gold-gradient text-slateLuxury py-3 rounded-xl font-bold text-center">Discuss this scope</a></div>
-      <div class="bg-white rounded-3xl p-8 card-shadow reveal"><p class="text-sm text-auraGold font-semibold uppercase tracking-widest">03 · Bespoke Production</p><h3 class="font-display text-3xl mt-3">Signature VIP</h3><p class="text-slate-600 mt-3">For celebrations where ordinary isn't an option—immersive environments, complex production and one-of-one details.</p><ul class="space-y-3 mt-7 text-sm"><li>✓ Creative direction + production</li><li>✓ Custom fabrication</li><li>✓ Stage, sound & lighting</li><li>✓ Entertainment coordination</li><li>✓ Dedicated production lead</li></ul><button class="requestBtn mt-8 w-full border border-slate-200 py-3 rounded-xl font-semibold hover:border-auraGold">Request Package</button></div>
+      <div class="bg-white border-t border-slate-200 pt-7 reveal"><p class="text-sm text-auraGold font-semibold uppercase tracking-widest">01 · Partial Styling</p><h3 class="font-display text-3xl mt-3">Essential Elegance</h3><p class="text-slate-600 mt-3">For hosts who have the venue and plan, but want Aura's eye for the moments guests notice most.</p><div class="mt-7 pt-5 border-t border-slate-200 text-sm text-slate-600 leading-relaxed">Ceremony or entrance styling · tablescape design · floral accents · setup supervision</div><a href="#consultation" class="block mt-8 w-full border border-slate-200 py-3 rounded-xl font-semibold text-center hover:border-auraGold">Discuss this scope</a></div>
+      <div class="bg-slateLuxury text-white p-8 md:p-10 reveal"><p class="text-sm text-auraGold font-semibold uppercase tracking-widest">02 · Full Experience</p><h3 class="font-display text-3xl mt-3">Bespoke Luxury</h3><p class="text-white/65 mt-3">A complete visual language carried through the venue, guest journey, florals, furniture and lighting.</p><div class="mt-7 pt-5 border-t border-white/15 text-sm text-white/70 leading-relaxed">Full concept and moodboard · florals · furniture · linen · lighting · setup and strike management</div><a href="#consultation" class="block mt-8 w-full gold-gradient text-slateLuxury py-3 rounded-xl font-bold text-center">Discuss this scope</a></div>
+      <div class="bg-white rounded-3xl p-8 card-shadow reveal"><p class="text-sm text-auraGold font-semibold uppercase tracking-widest">03 · Bespoke Production</p><h3 class="font-display text-3xl mt-3">Signature VIP</h3><p class="text-slate-600 mt-3">For celebrations where ordinary isn't an option—immersive environments, complex production and one-of-one details.</p><div class="mt-7 pt-5 border-t border-slate-200 text-sm text-slate-600 leading-relaxed">Creative direction · custom fabrication · stage, sound and lighting · entertainment coordination · dedicated production lead</div><button class="requestBtn mt-8 w-full border border-slate-200 py-3 rounded-xl font-semibold hover:border-auraGold">Request Package</button></div>
     </div>
   </div>
 </section>
@@ -179,7 +204,7 @@
   <div class="max-w-7xl mx-auto px-5 lg:px-8">
     <div class="max-w-2xl reveal">
       <p class="eyebrow text-auraGold">Our approach</p>
-      <h2 class="font-display text-4xl md:text-5xl mt-3">Quietly detailed. Visually distinctive.</h2>
+      <h2 class="font-display text-4xl md:text-5xl mt-3">The standard behind the styling.</h2>
       <p class="text-slate-600 mt-5 leading-relaxed">The goal is not to decorate a room. It is to create an atmosphere that feels specific to the people, place and occasion.</p>
     </div>
     <div class="grid md:grid-cols-3 gap-6 mt-12">
@@ -192,7 +217,7 @@
 
 <section id="consultation" class="py-24 bg-slateLuxury text-white">
   <div class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-[.8fr_1.2fr] gap-12">
-    <div class="reveal"><p class="text-auraGold text-sm font-semibold tracking-[.2em] uppercase">Start the conversation</p><h2 class="font-display text-5xl mt-3">Tell us what you are planning.</h2><p class="text-white/65 mt-6 leading-relaxed">Share the essentials of your event and we will come back with a considered next step.</p><div class="mt-10 space-y-4 text-sm text-white/75"><p>✦ Delhi · Mumbai · Destination events</p><p>✦ Initial consultations by appointment</p><p>✦ hello@yourdomain.com (placeholder)</p></div></div>
+    <div class="reveal"><p class="text-auraGold text-sm font-semibold tracking-[.2em] uppercase">Start the conversation</p><h2 class="font-display text-5xl mt-3">Start with the details.</h2><p class="text-white/65 mt-6 leading-relaxed">Share the essentials of your event and we will come back with a considered next step.</p><div class="mt-10 space-y-4 text-sm text-white/75"><p>✦ Delhi · Mumbai · Destination events</p><p>✦ Initial consultations by appointment</p><p>✦ hello@yourdomain.com (placeholder)</p></div></div>
     <form id="consultForm" autocomplete="on" class="bg-white text-slateLuxury rounded-3xl p-7 md:p-9 grid sm:grid-cols-2 gap-5 reveal">
       <label class="block"><span class="text-sm font-semibold">Name</span><input required name="name" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3" placeholder="Your name"></label>
       <label class="block"><span class="text-sm font-semibold">Email</span><input required type="email" name="email" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3" placeholder="you@example.com"></label>
@@ -219,28 +244,7 @@
   <div class="max-w-7xl mx-auto px-5 lg:px-8 border-t border-white/10 mt-10 pt-6 text-xs flex flex-col md:flex-row gap-2 md:justify-between"><span>© 2026 Aura Events & Decor. Concept website.</span><span>Replace demo claims and contact details with verified business assets before launch, and keep a record of the license/source for every published photo.</span></div>
 </footer>
 
-<div id="toast" class="toast fixed bottom-6 right-6 z-[60] bg-slateLuxury text-white px-5 py-4 rounded-xl shadow-2xl text-sm"></div>
-
 <script>
-const portfolio=[
- {cat:'Luxury Weddings',title:'Ivory Garden',venue:'Luxury reception setting',guests:'320 guests',img:'https://images.unsplash.com/photo-1747041807225-722af454c719?auto=format&fit=crop&fm=jpg&q=78&w=1400'},
- {cat:'Corporate Galas',title:'Midnight Summit',venue:'Formal event tablescape',guests:'600 guests',img:'https://images.unsplash.com/photo-1775126964424-913480443772?auto=format&fit=crop&fm=jpg&q=78&w=1400'},
- {cat:'Floral Architecture',title:'Petal Canopy',venue:'Indian-inspired floral entrance',guests:'180 guests',img:'https://images.unsplash.com/photo-1747041807225-722af454c719?auto=format&fit=crop&fm=jpg&q=78&w=1400'},
- {cat:'Stage & Lighting',title:'Golden Hour',venue:'Candlelit reception styling',guests:'450 guests',img:'https://images.unsplash.com/photo-1775126964424-913480443772?auto=format&fit=crop&fm=jpg&q=78&w=1400'},
- {cat:'Luxury Weddings',title:'Champagne Romance',venue:'Elegant outdoor celebration',guests:'220 guests',img:'https://images.unsplash.com/photo-1772127822525-7eda37383b9f?auto=format&fit=crop&fm=jpg&q=78&w=1400'},
- {cat:'Corporate Galas',title:'Future Forward',venue:'Modern reception environment',guests:'900 guests',img:'https://images.unsplash.com/photo-1745573673235-5f2cee3ff9a8?auto=format&fit=crop&fm=jpg&q=78&w=1400'},
- {cat:'Floral Architecture',title:'Wild Botanica',venue:'Statement floral installation',guests:'140 guests',img:'https://images.unsplash.com/photo-1747041807225-722af454c719?auto=format&fit=crop&fm=jpg&q=78&w=1400'},
- {cat:'Stage & Lighting',title:'After Dark',venue:'Warm luxury tablescape',guests:'700 guests',img:'https://images.unsplash.com/photo-1775126964424-913480443772?auto=format&fit=crop&fm=jpg&q=78&w=1400'}
-];
-const cats=['All','Luxury Weddings','Corporate Galas','Floral Architecture','Stage & Lighting'];
-const filters=document.getElementById('filters');
-cats.forEach((c,i)=>{const b=document.createElement('button');b.textContent=c;b.className='filter px-4 py-2 rounded-full text-xs border border-white/15 '+(i===0?'bg-auraGold text-slateLuxury border-auraGold':'text-white/70');b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('bg-auraGold','text-slateLuxury','border-auraGold'));b.classList.add('bg-auraGold','text-slateLuxury','border-auraGold');renderPortfolio(c)};filters.appendChild(b)});
-function renderPortfolio(filter='All'){
- const grid=document.getElementById('portfolioGrid');
- grid.innerHTML=portfolio.filter(x=>filter==='All'||x.cat===filter).map(x=>`<article class="portfolio-card group relative overflow-hidden rounded-2xl h-80 bg-slate-800"><img class="absolute inset-0 w-full h-full object-cover portfolio-photo" src="${x.img}" alt="${x.title} — ${x.cat} event decor" loading="lazy"><div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent"></div><div class="overlay absolute inset-0 bg-auraGold/15"></div><div class="absolute top-4 left-4 bg-black/50 backdrop-blur px-3 py-1 rounded-full text-xs">${x.guests}</div><div class="absolute bottom-0 p-5"><p class="text-auraGold text-xs font-semibold uppercase tracking-wider">${x.cat}</p><h3 class="font-display text-2xl">${x.title}</h3><p class="text-white/65 text-xs mt-1">${x.venue}</p></div></article>`).join('');
-}
-renderPortfolio();
-
 const menuBtn=document.getElementById('menuBtn');
 const mobileMenu=document.getElementById('mobileMenu');
 if(menuBtn && mobileMenu){
@@ -260,9 +264,8 @@ if(menuBtn && mobileMenu){
     document.getElementById('menuIcon').innerHTML='<path d="M4 7h16M4 12h16M4 17h16"/>';
   }));
 }
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3200)}
 const dateField=document.querySelector('input[name="date"]'); if(dateField) dateField.min=new Date().toISOString().split('T')[0];
-document.getElementById('consultForm').addEventListener('submit',e=>{e.preventDefault();toast('Thanks — your request is ready for submission once a real form service is connected.');e.target.reset()});
+document.getElementById('consultForm').addEventListener('submit',e=>{e.preventDefault();alert('Demo mode: connect a real form service before launch.');e.target.reset()});
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(x=>observer.observe(x));
 </script>
