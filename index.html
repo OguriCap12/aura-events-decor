@@ -36,6 +36,8 @@
     .glass { background:rgba(255,255,255,.08); backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,.16); }
     .portfolio-card img { transition:transform .65s cubic-bezier(.2,.7,.2,1); }
     .portfolio-card:hover img { transform:scale(1.07); }
+    .hero-photo { object-position:center; }
+    .portfolio-photo { object-position:center; }
     .portfolio-card .overlay { opacity:0; transition:opacity .3s ease; }
     .portfolio-card:hover .overlay { opacity:1; }
     .reveal { opacity:0; transform:translateY(18px); transition:.7s ease; }
@@ -88,7 +90,7 @@
 
 <main>
 <section class="relative min-h-[760px] lg:min-h-[850px] flex items-center overflow-hidden">
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_78%_22%,rgba(212,175,55,.32),transparent_28%),radial-gradient(circle_at_68%_72%,rgba(255,255,255,.10),transparent_30%),linear-gradient(135deg,#111827,#0F172A_52%,#05070c)]"></div>
+  <img class="absolute inset-0 w-full h-full object-cover hero-photo" src="https://images.unsplash.com/photo-1747041807225-722af454c719?auto=format&fit=crop&fm=jpg&q=82&w=2200" alt="Luxury wedding reception with floral arch, chandeliers and gold details" loading="eager" fetchpriority="high">
   <div class="absolute inset-0 hero-overlay"></div>
   <div class="relative max-w-7xl mx-auto px-5 lg:px-8 w-full pt-24">
     <div class="max-w-3xl text-white reveal">
@@ -165,7 +167,7 @@
     </div>
     <div id="portfolioGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12"></div>
 
-    <p class="mt-8 text-xs text-white/45 max-w-2xl">Visual panels are original CSS artwork for this concept site. Replace them with photography you own or have explicitly licensed before commercial launch.</p>
+    <p class="mt-8 text-xs text-white/45 max-w-2xl">Current photos are sourced from Unsplash pages that state the images are free to use under the Unsplash License. Before commercial launch, verify the current Unsplash terms and any image-specific third-party rights, and replace photos with your own or explicitly licensed assets where appropriate.</p>
   </div>
 </section>
 
@@ -220,7 +222,7 @@
     <div><h4 class="text-white font-semibold">Contact</h4><div class="space-y-2 mt-4 text-sm"><p>hello@yourdomain.com</p><p>+91 XXXXX XXXXX</p><p>Delhi · Mumbai · Destination Events</p></div></div>
     <div><h4 class="text-white font-semibold">Studio Hours</h4><p class="text-sm mt-4">Mon–Sat · 10:00 AM–7:00 PM</p><div class="flex gap-4 mt-5"><span class="text-white/35">Instagram</span><span class="text-white/35">LinkedIn</span></div></div>
   </div>
-  <div class="max-w-7xl mx-auto px-5 lg:px-8 border-t border-white/10 mt-10 pt-6 text-xs flex flex-col md:flex-row gap-2 md:justify-between"><span>© 2026 Aura Events & Decor. Concept website.</span><span>Replace demo claims, contact details and visuals with verified business assets and documented licenses before launch.</span></div>
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 border-t border-white/10 mt-10 pt-6 text-xs flex flex-col md:flex-row gap-2 md:justify-between"><span>© 2026 Aura Events & Decor. Concept website.</span><span>Replace demo claims and contact details with verified business assets before launch, and keep a record of the license/source for every published photo.</span></div>
 </footer>
 
 <div id="toast" class="toast fixed bottom-6 right-6 z-[60] bg-slateLuxury text-white px-5 py-4 rounded-xl shadow-2xl text-sm"></div>
@@ -247,21 +249,21 @@ function updateEstimate(){
 updateEstimate();
 
 const portfolio=[
- {cat:'Luxury Weddings',title:'Ivory Garden',venue:'Luxury Hotel · New Delhi',guests:'320 guests',bg:'linear-gradient(145deg,#3b2f1a,#d4af37 45%,#f5e6a8 46%,#6b5420)'},
- {cat:'Corporate Galas',title:'Midnight Summit',venue:'Five-star Hotel · New Delhi',guests:'600 guests',bg:'linear-gradient(145deg,#05070c,#273449 48%,#b89a4a 49%,#111827)'},
- {cat:'Floral Architecture',title:'Petal Canopy',venue:'Luxury Hotel · Mumbai',guests:'180 guests',bg:'linear-gradient(145deg,#17352c,#4d8065 45%,#d4af37 46%,#10231d)'},
- {cat:'Stage & Lighting',title:'Golden Hour',venue:'Luxury Hotel · Mumbai',guests:'450 guests',bg:'linear-gradient(145deg,#111827,#4b3b18 45%,#f1d77a 46%,#0f172a)'},
- {cat:'Luxury Weddings',title:'Champagne Romance',venue:'Heritage Venue · Rajasthan',guests:'220 guests',bg:'linear-gradient(145deg,#5b3b45,#d8a7b0 45%,#f5e6a8 46%,#2b1d24)'},
- {cat:'Corporate Galas',title:'Future Forward',venue:'Premium Hotel · Delhi NCR',guests:'900 guests',bg:'linear-gradient(145deg,#0f172a,#334155 45%,#d4af37 46%,#020617)'},
- {cat:'Floral Architecture',title:'Wild Botanica',venue:'Private Estate · Goa',guests:'140 guests',bg:'linear-gradient(145deg,#24362c,#7d9a7e 45%,#e6d7a3 46%,#17251e)'},
- {cat:'Stage & Lighting',title:'After Dark',venue:'Luxury Ballroom · Delhi NCR',guests:'700 guests',bg:'linear-gradient(145deg,#05070c,#3f2e19 45%,#d4af37 46%,#15110a)'}
+ {cat:'Luxury Weddings',title:'Ivory Garden',venue:'Luxury reception setting',guests:'320 guests',img:'https://images.unsplash.com/photo-1747041807225-722af454c719?auto=format&fit=crop&fm=jpg&q=78&w=1400'},
+ {cat:'Corporate Galas',title:'Midnight Summit',venue:'Formal event tablescape',guests:'600 guests',img:'https://images.unsplash.com/photo-1775126964424-913480443772?auto=format&fit=crop&fm=jpg&q=78&w=1400'},
+ {cat:'Floral Architecture',title:'Petal Canopy',venue:'Indian-inspired floral entrance',guests:'180 guests',img:'https://images.unsplash.com/photo-1747041807225-722af454c719?auto=format&fit=crop&fm=jpg&q=78&w=1400'},
+ {cat:'Stage & Lighting',title:'Golden Hour',venue:'Candlelit reception styling',guests:'450 guests',img:'https://images.unsplash.com/photo-1775126964424-913480443772?auto=format&fit=crop&fm=jpg&q=78&w=1400'},
+ {cat:'Luxury Weddings',title:'Champagne Romance',venue:'Elegant outdoor celebration',guests:'220 guests',img:'https://images.unsplash.com/photo-1772127822525-7eda37383b9f?auto=format&fit=crop&fm=jpg&q=78&w=1400'},
+ {cat:'Corporate Galas',title:'Future Forward',venue:'Modern reception environment',guests:'900 guests',img:'https://images.unsplash.com/photo-1745573673235-5f2cee3ff9a8?auto=format&fit=crop&fm=jpg&q=78&w=1400'},
+ {cat:'Floral Architecture',title:'Wild Botanica',venue:'Statement floral installation',guests:'140 guests',img:'https://images.unsplash.com/photo-1747041807225-722af454c719?auto=format&fit=crop&fm=jpg&q=78&w=1400'},
+ {cat:'Stage & Lighting',title:'After Dark',venue:'Warm luxury tablescape',guests:'700 guests',img:'https://images.unsplash.com/photo-1775126964424-913480443772?auto=format&fit=crop&fm=jpg&q=78&w=1400'}
 ];
 const cats=['All','Luxury Weddings','Corporate Galas','Floral Architecture','Stage & Lighting'];
 const filters=document.getElementById('filters');
 cats.forEach((c,i)=>{const b=document.createElement('button');b.textContent=c;b.className='filter px-4 py-2 rounded-full text-xs border border-white/15 '+(i===0?'bg-auraGold text-slateLuxury border-auraGold':'text-white/70');b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('bg-auraGold','text-slateLuxury','border-auraGold'));b.classList.add('bg-auraGold','text-slateLuxury','border-auraGold');renderPortfolio(c)};filters.appendChild(b)});
 function renderPortfolio(filter='All'){
  const grid=document.getElementById('portfolioGrid');
- grid.innerHTML=portfolio.filter(x=>filter==='All'||x.cat===filter).map(x=>`<article class="portfolio-card group relative overflow-hidden rounded-2xl h-80"><div class="absolute inset-0" style="background:${x.bg}"></div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div><div class="overlay absolute inset-0 bg-auraGold/15"></div><div class="absolute top-4 left-4 bg-black/50 backdrop-blur px-3 py-1 rounded-full text-xs">${x.guests}</div><div class="absolute bottom-0 p-5"><p class="text-auraGold text-xs font-semibold uppercase tracking-wider">${x.cat}</p><h3 class="font-display text-2xl">${x.title}</h3><p class="text-white/65 text-xs mt-1">${x.venue}</p></div></article>`).join('');
+ grid.innerHTML=portfolio.filter(x=>filter==='All'||x.cat===filter).map(x=>`<article class="portfolio-card group relative overflow-hidden rounded-2xl h-80 bg-slate-800"><img class="absolute inset-0 w-full h-full object-cover portfolio-photo" src="${x.img}" alt="${x.title} — ${x.cat} event decor" loading="lazy"><div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent"></div><div class="overlay absolute inset-0 bg-auraGold/15"></div><div class="absolute top-4 left-4 bg-black/50 backdrop-blur px-3 py-1 rounded-full text-xs">${x.guests}</div><div class="absolute bottom-0 p-5"><p class="text-auraGold text-xs font-semibold uppercase tracking-wider">${x.cat}</p><h3 class="font-display text-2xl">${x.title}</h3><p class="text-white/65 text-xs mt-1">${x.venue}</p></div></article>`).join('');
 }
 renderPortfolio();
 
