@@ -101,7 +101,7 @@
   <div class="absolute inset-0 hero-overlay"></div>
   <div class="relative max-w-7xl mx-auto px-5 lg:px-8 w-full pb-20 lg:pb-24 pt-40">
     <div class="max-w-3xl text-white reveal">
-      <p class="eyebrow text-auraGold mb-5">Event design · styling · production</p>
+      <p class="eyebrow text-auraGold mb-5">Private celebrations · event design · production</p>
       <h1 class="font-display text-5xl md:text-7xl leading-[.95] tracking-tight max-w-4xl">Events with a point of view.</h1>
       <p class="mt-7 text-base md:text-lg text-white/80 max-w-xl leading-relaxed">Aura creates considered weddings, celebrations and corporate occasions where design, atmosphere and production work as one.</p>
       <div class="flex flex-col sm:flex-row gap-3 mt-8">
@@ -128,7 +128,7 @@
   <div class="max-w-7xl mx-auto px-5 lg:px-8">
     <div class="max-w-3xl reveal">
       <p class="eyebrow text-auraGold">Selected work</p>
-      <h2 class="font-display text-4xl md:text-6xl mt-3 tracking-tight">A visual point of view.</h2>
+      <h2 class="font-display text-4xl md:text-6xl mt-3 tracking-tight">Selected concepts.</h2>
       <p class="text-white/55 mt-5 max-w-2xl leading-relaxed">A concept collection showing the kind of atmospheres Aura can create. Replace these reference images with your own event photography before launch.</p>
     </div>
     <div class="grid md:grid-cols-12 gap-4 mt-12">
@@ -204,7 +204,7 @@
   <div class="max-w-7xl mx-auto px-5 lg:px-8">
     <div class="max-w-2xl reveal">
       <p class="eyebrow text-auraGold">Our approach</p>
-      <h2 class="font-display text-4xl md:text-5xl mt-3">The standard behind the styling.</h2>
+      <h2 class="font-display text-4xl md:text-5xl mt-3">Details make the difference.</h2><p class="text-sm text-slate-500 max-w-xl mt-8">Clear scope. Thoughtful design. Reliable production. Every detail is considered in context of the occasion.</p>
       <p class="text-slate-600 mt-5 leading-relaxed">The goal is not to decorate a room. It is to create an atmosphere that feels specific to the people, place and occasion.</p>
     </div>
     <div class="grid md:grid-cols-3 gap-6 mt-12">
@@ -229,7 +229,8 @@
       <button class="sm:col-span-2 gold-gradient py-4 rounded-xl font-bold hover:brightness-105">Request Consultation</button>
       <p class="sm:col-span-2 text-xs text-slate-400">Demo mode: this form does not transmit or store your information. Before launch, connect it to a properly configured form/CRM service and publish a clear privacy notice explaining what you collect, why, retention, and user rights.</p>
       <p class="sm:col-span-2 text-xs text-slate-400">No pressure. No mass-market packages. Just a thoughtful first conversation.</p>
-    </form>
+    <p id="formStatus" class="hidden md:col-span-2 text-sm text-slate-500 pt-1" role="status"></p>
+      </form>
   </div>
 </section>
 </main>
@@ -265,7 +266,7 @@ if(menuBtn && mobileMenu){
   }));
 }
 const dateField=document.querySelector('input[name="date"]'); if(dateField) dateField.min=new Date().toISOString().split('T')[0];
-document.getElementById('consultForm').addEventListener('submit',e=>{e.preventDefault();alert('Demo mode: connect a real form service before launch.');e.target.reset()});
+document.getElementById('consultForm').addEventListener('submit',e=>{e.preventDefault();const s=document.getElementById('formStatus');if(s){s.textContent='Demo mode — connect a form service before launch.';s.classList.remove('hidden')}e.target.reset()});
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(x=>observer.observe(x));
 </script>
